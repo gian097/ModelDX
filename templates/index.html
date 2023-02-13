@@ -1,0 +1,390 @@
+{% extends "Pagina.html" %} {% block content %}
+
+<main class="main" id="top">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
+        <div class="container">
+            <!-- <a class="navbar-brand" href="index.html"><img src="/static/img/gallery/logo.png" width="118" alt="logo" /></a> -->
+            <h1 width="118" alt="logo">MODEL-DX</h1>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
+            <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
+                    <li class="nav-item px-2"><a class="nav-link" href="#home">Inicio</a></li>
+                    <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="#about">Acerca de</a></li>
+                    <li class="nav-item px-2"><a class="nav-link" href="#contact">Contacto</a></li>
+                    <li class="nav-item px-2"><a class="nav-link" href="/validar">validar</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="py-xxl-10 pb-0" id="home">
+        <div class="bg-holder bg-size" style="background-image:url(/static/img/gallery/hero-bg.png);background-position:top center;background-size:cover;">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container">
+            <div class="row min-vh-xl-100 min-vh-xxl-25">
+                <div class="col-md-5 col-xl-6 col-xxl-7 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 w-100" src="/static/img/gallery/hero.png" alt="hero-header" /></div>
+                <div class="col-md-75 col-xl-6 col-xxl-5 text-md-start text-center py-6">
+                    <h1 class="fw-light font-base fs-6 fs-xxl-7">Diagnóstico <strong>TDAH </strong><br />para &nbsp;<strong>mejorar tu vida.</strong></h1>
+                    <p class="fs-1 mb-5">Puede utilizar el sistema para brindar la atención que necesita las 24 horas del día, los 7 días de la semana, en línea
+                        <br />Disponible para todos los médicos especialistas atentos. </p>
+                        <button type="button" class="btn btn-lg btn-outline-primary rounded-pill" data-toggle="modal" data-target="#exampleModal">
+                            Empezar dignostico
+                          </button>
+                          {% block modal %}
+                          <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Paciente</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                    <div>
+                        <form class="row g-3" id="upload-file" method="post" enctype="multipart/form-data">
+                            <div class="col-md-6">
+                                <label for="inputNombre" class="form-label visually-hidden">Nombre</label>
+                                <input type="text" name="nombre" class="form-control form-livedoc-control" id="inputNombre" placeholder="Nombre">
+                              </div>
+                              <div class="col-md-6">
+                                <label for="inputApellido" class="form-label visually-hidden">Apellido</label>
+                                <input type="text" name="apellido" class="form-livedoc-control" id="inputApellido" placeholder="Apellido">
+                              </div>
+                              <div class="col-md-6">
+                                <label for="inputCedula" class="form-label visually-hidden">Cedula</label>
+                                <input type="text" name="cedula" class="form-livedoc-control" id="inputCedula" placeholder="Cedula">
+                              </div>
+
+                              <div class="col-md-6">
+                                <label for="inputState" class="form-label visually-hidden">Genero</label>
+                                <select id="inputState" name="genero" class="form-select">
+                                  <option selected>Genero</option>
+                                  <option>Masculino</option>
+                                  <option>Femenino</option>
+                                  </select>
+                                  </div>
+                        
+                          <div class="col-md-7">
+                            <label for="fecha" class="form-label">Fecha de nacimiento</label>
+
+                            <input type="date" class="form-livedoc-control" id="start" name="fecha"
+                                   value=""
+                                   min="1930-01-01" max="2022-12-31">
+                            </div>
+
+
+                              <div class="col-md-6">
+                                <label for="inputDireccion" class="form-label visually-hidden">Direccion</label>
+                                <input type="text" name="direccion"  class="form-livedoc-control" id="inputDireccion" placeholder="Direccion">
+                              </div>
+                              <div class="col-md-6">
+                                <label for="inputCiudad" class="form-label visually-hidden">Ciudad</label>
+                                <input type="text" name="ciudad" class="form-livedoc-control" id="inputCiudad" placeholder="Ciudad">
+                              </div>
+                              <div class="col-9">
+                                <label for="inputState" class="form-label visually-hidden">RH</label>
+                                <select id="inputState" name="rh" class="form-select">
+                                  <option selected>RH</option>
+                                  <option>A+</option>
+                                  <option>A-</option>
+                                  <option>O+</option>
+                                  <option>O-</option>
+                                  <option>B+</option>
+                                  <option>B-</option>
+                                  <option>AB+</option>
+                                  <option>AB-</option>
+
+                                </select>
+                                </div>
+
+                            <label for="imageUpload1" class="btn btn-primary ">
+                                    FMRI
+                                </label>
+                            <input type="file" name="file" id="imageUpload1"  accept=".nii">
+
+                            <label for="imageUpload" class="btn btn-primary ">
+                                COUFONDS
+                            </label>
+                        <input type="file" name="file1" id="imageUpload" accept=".csv">
+                        
+
+                        <div class="image-section" style="display:none;">
+                            <div class="">
+                                <div id="imagePreview">
+                                </div>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-primary" id="btn-predict" data-toggle="modal" data-target="#exampleModalCenter">Predicción</button>
+                            </div>
+                        </div>
+
+                        <div class="loader" style="display:none;"></div>
+
+                        <h3>
+                            <label name="predicion" id="result" ></label>
+                            </h3>
+                            <span> </span>
+
+                        </h3>
+                        <div>
+                            <canvas id="myChart" width="400" height="300" style=" left: -50px; position: relative;"></canvas>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            
+                          </div>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+                    {% endblock %}
+
+                    <!-- <form action="#home " method="post " enctype="multipart/form-data ">
+                        <p>
+                            <div class="custom-input-file btn-lg btn-primary rounded-pill ">
+                                <input type="file " id="fichero-tarifas " class="input-file " role="button " name="imagensubida " accept="image/png, .jpeg, .jpg, image/gif "> Subir imagen
+                            </div>
+
+                            <br/>
+                            <div class="custom-input-file btn-lg btn-primary rounded-pill ">
+                                <input class="input-file " type="submit " role="button "> Enviar datos
+                            </div>
+                        </p>
+                    </form> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================-->
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade " id="exampleModalCenter " tabindex="-1 " role="dialog " aria-labelledby="exampleModalCenterTitle " aria-hidden="true ">
+        <div class="modal-dialog modal-dialog-centered " role="document ">
+            <div class="modal-content ">
+                <div class="modal-header ">
+                    <h5 class="modal-title " id="exampleModalLongTitle ">Percentaje obtenido</h5>
+                    <button type="button " class="close " data-dismiss="modal " aria-label="Close ">
+      <span aria-hidden="true ">&times;</span>
+    </button>
+                </div>
+                <div class="modal-body ">
+                    la imagen 87%...
+                </div>
+                <div class="modal-footer ">
+                    <button type="button " class="btn btn-secondary " data-dismiss="modal ">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================-->
+
+    <section class="bg-secondary ">
+        <div class="bg-holder " style="background-image:url(/static/img/gallery/bg-eye-care.png);background-position:center;background-size:contain; ">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container ">
+            <div class="row align-items-center ">
+                <div class="col-md-5 col-xxl-6 "><img class="img-fluid " src="/static/img/gallery/doctors-bg.png " alt="... " /></div>
+                <div class="col-md-7 col-xxl-6 text-center text-md-start ">
+                    <h2 class="fw-bold text-light mb-4 mt-4 mt-lg-0 ">¿Como se hizo el preprocesamiento de las imagenes?<br class="d-none d-sm-block " /></h2>
+                    <p class="text-light "><br class="d-none d-sm-block " /> Para lograr hacer un preprocesamientos de las imagenes .nii se utilizo una herrmaienta llamada Fmriprep que se encarga de unir otras herramientas para lograr un mejor preprocesamiento, en el boton ver mas podras observar como se hizo el preprocesamiento.
+                        </p>
+                    <div class="py-3 "><a class="btn btn-lg btn-light rounded-pill " href="{{ url_for('static', filename='/sub-218.html') }}" >Leer más</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================-->
+    <!-- <section> begin ============================-->
+    <section class="pb-0 " id="about ">
+
+        <div class="container ">
+            <div class="row ">
+                <div class="col-12 py-3 ">
+                    <div class="bg-holder bg-size " style="background-image:url(/static/img/gallery/about-us.png);background-position:top center;background-size:contain; ">
+                    </div>
+                    <!--/.bg-holder-->
+
+                    <h1 class="text-center ">Acerca de</h1>
+                </div>
+            </div>
+        </div>
+        <!-- end of .container-->
+
+    </section>
+    <!-- <section> close ============================-->
+    <!-- ============================================-->
+
+
+    <section class="py-5 ">
+        <div class="bg-holder bg-size " style="background-image:url(/static/img/gallery/about-bg.png);background-position:top center;background-size:contain; ">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container ">
+            <div class="row align-items-center ">
+                <div class="col-md-6 order-lg-1 mb-5 mb-lg-0 "><img class="fit-cover rounded-circle w-100 " src="/static/img/gallery/health-care.png " alt="... " /></div>
+                <div class="col-md-6 text-center text-md-start ">
+                    <h2 class="fw-bold mb-4 ">Estamos desarrollando una asistencia en línea,
+                        <br class="d-none d-sm-block " />un sistema que ayudará...</h2>
+                    <p>Creemos que todo el mundo debería tener fácil acceso a excelentes cuidado de la salud.<br class="d-none d-sm-block " />Nuestro objetivo es simplificar el procedimiento posible
+                        <br class="d-none d-sm-block " />para los pacientes y ofrecer el servicio sin importar donde se encuentren, visita nuestro repositorio en github. </p>
+                    <div class="py-3 ">
+                        <button class="btn btn-lg btn-outline-warning rounded-pill " type="submit ">Github</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================-->
+
+    <!-- <section> begin ============================-->
+    <section class="py-5 " id="contact ">
+
+        <div class="container ">
+            <div class="row ">
+                <div class="col-12 py-3 ">
+                    <div class="bg-holder bg-size " style="background-image:url(/static/img/gallery/people.png);background-position:top center;background-size:contain; ">
+                    </div>
+                    <!--/.bg-holder-->
+
+                    <h1 class="text-center "> Contacto</h1>
+                </div>
+            </div>
+        </div>
+        <!-- end of .container-->
+
+    </section>
+    <!-- <section> close ============================-->
+    <!-- ============================================-->
+
+
+    <section class="py-8 ">
+        <div class="container ">
+            <div class="row ">
+                <div class="bg-holder bg-size " style="background-image:url(/static/img/gallery/dot-bg.png);background-position:bottom right;background-size:auto; ">
+                </div>
+                <!--/.bg-holder-->
+
+                <div class="col-lg-6 z-index-2 mb-5 "><img class="w-100 " src="/static/img/gallery/appointment.png " alt="... " /></div>
+                <div class="col-lg-6 z-index-2 ">
+                    <form class="row g-3 ">
+                        <div class="col-md-6 ">
+                            <label class="visually-hidden " for="inputName ">Nombre</label>
+                            <input class="form-control form-livedoc-control " id="inputName " type="text " placeholder="Nombre " />
+                        </div>
+                        <div class="col-md-6 ">
+                            <label class="visually-hidden " for="inputPhone ">Celular</label>
+                            <input class="form-control form-livedoc-control " id="inputPhone " type="text " placeholder="Celular " />
+                        </div>
+
+                        <div class="col-md-6 ">
+                            <label class="form-label visually-hidden " for="inputEmail ">Correo electronico</label>
+                            <input class="form-control form-livedoc-control " id="inputEmail " type="email " placeholder="Correo electronico " />
+                        </div>
+                        <div class="col-md-12 ">
+                            <label class="form-label visually-hidden " for="validationTextarea ">Mensaje</label>
+                            <textarea class="form-control form-livedoc-control " id="validationTextarea " placeholder="Mensaje " style="height: 250px; " required="required "></textarea>
+                        </div>
+                        <div class="col-12 ">
+                            <div class="d-grid ">
+                                <button class="btn btn-primary rounded-pill " type="submit ">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================-->
+
+
+
+    <!--/.bg-holder-->
+
+    <div class="container ">
+        <div class="row ">
+            <div class="col-lg-6 ">
+            </div>
+            <div class="col-lg-6 ">
+
+            </div>
+        </div>
+    </div>
+    </section>
+    <section class="py-0 bg-secondary ">
+        <div class="bg-holder opacity-25 " style="background-image:url(/static/img/gallery/dot-bg.png);background-position:top left;margin-top:-3.125rem;background-size:auto; ">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container ">
+            <div class="row py-8 ">
+                <div class="col-12 col-sm-12 col-lg-6 mb-4 order-0 order-sm-0 ">
+
+                    <a class="text-decoration-none " href="# ">
+                        <h5 height="51 ">ModelDX</h5>
+                    </a>
+                    <p class="text-light my-4 "><strong>TDAH.</strong> <br />Diagnóstico en línea.</p>
+                </div>
+                <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2 ">
+                    <h5 class="lh-lg fw-bold text-light mb-4 font-sans-serif ">Atención al cliente</h5>
+                    <ul class="list-unstyled mb-md-4 mb-lg-0 ">
+                        <li class="lh-lg "><a class="footer-link " href="#! ">Acerca de</a></li>
+                        <li class="lh-lg "><a class="footer-link " href="#! ">Contacto</a></li>
+                        <li class="lh-lg "><a class="footer-link " href="#! ">Ayuda</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ============================================-->
+        <!-- <section> begin ============================-->
+        <section class="py-0 bg-primary ">
+
+            <div class="container ">
+                <div class="row justify-content-md-between justify-content-evenly py-4 ">
+                    <div class="col-12 col-sm-8 col-md-6 col-lg-auto text-center text-md-start ">
+                        <p class="fs--1 my-2 fw-bold text-200 ">Todos los derechos reservados &copy; MODELDX 2022</p>
+                    </div>
+                    <div class="col-12 col-sm-8 col-md-6 ">
+                        <p class="fs--1 my-2 text-center text-md-end text-200 "> Elaborado&nbsp;
+                            <svg class="bi bi-suit-heart-fill " xmlns="" width="12 " height="12 " fill="#F95C19 " viewBox="0 0 16 16 ">
+                <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z "></path>
+              </svg>&nbsp;by&nbsp;<a class="fw-bold text-info " href=" ">Estudiantes de pregrado Udenar.</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- end of .container-->
+
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+
+
+    </section>
+</main>
+
+
+{% endblock %}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/asssets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/asssets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/asssets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/asssets/img/favicons/favicon.ico">
+    <link rel="manifest" href="/asssets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+    <title>validar</title>
+</head>
+<body>
+  <div class="">
+    <table class="table table-hover col-12">
+        <thead>
+          <tr class="table-info">
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Genero</th>
+            <th scope="col">Fecha de nacimiento</th>
+            <th scope="col">Cedula</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Ciudad</th>
+            <th scope="col">RH</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Predicion</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          
+{% for paciente in pacientes %}
+
+      <tr >
+        <th scope="row">{{paciente.0}}</th>
+        <th>{{paciente.1}}</th>
+        <td>{{paciente.2}}</td>
+        <td>{{paciente.3}}</td>
+        <td>{{paciente.4}}</td>
+        <td>{{paciente.5}}</td>
+        <td>{{paciente.6}}</td>
+        <td>{{paciente.7}}</td>
+        <td>{{paciente.8}}</td>
+        <td>{{paciente.9}}</td>
+        <td>{{paciente.10}}</td>
+
+        <td><a href="/diagnostico/{{paciente.0}}" class="btn btn-success" >validar DX</a></td>
+      </tr>
+        {% endfor %}
+
+      
+</tbody>
+</div>
+{% block modal %}
+
+      {% endblock %}
+</body>
+{% block script %}{% endblock %}
+<script src="{{ url_for('static', filename='js/main.js') }}" type="text/javascript"></script>
+
+</html>

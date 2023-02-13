@@ -1,0 +1,61 @@
+
+      <!DOCTYPE html>
+      <html lang="es">
+      <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="apple-touch-icon" sizes="180x180" href="/asssets/img/favicons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/asssets/img/favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/asssets/img/favicons/favicon-16x16.png">
+        <link rel="shortcut icon" type="image/x-icon" href="/asssets/img/favicons/favicon.ico">
+        <link rel="manifest" href="/asssets/img/favicons/manifest.json">
+        <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+        <meta name="theme-color" content="#ffffff">
+        <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+        <title>validar</title>
+      </head>
+      <body>
+        
+
+
+<form action="/update/{{paciente.0}}" method="post">
+<div class="modal" id="modal-paciente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"> Validacion paciente {{paciente.0}}: {{paciente.1}} {{paciente.2}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+    <div class="col-md-12">
+      <label for="inputState" class="form-label "><h4>validar predicion.</h4></label>
+      <select type="text" id="inputState" name="diag" class="form-select">
+        <option ></option>
+        <option>Positivo TDAH</option>
+        <option>Negativo TDAH</option>
+      </select>
+      </div> 
+      <br>
+          <div class="col-12 ">
+            <div class="d-grid ">
+               <button type="submit" class="btn btn-primary">Enviar validacion</button>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</form>
+      </body>
+      <script src="{{ url_for('static', filename='js/main.js') }}" type="text/javascript"></script>
+      </html>
