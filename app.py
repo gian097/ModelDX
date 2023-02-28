@@ -112,27 +112,14 @@ def preprocessing(func_file,confound_file,smith_atlas):
 
   return X_train
 
-
-
 # Realizamos la predicción usando la imagen cargada y el modelo
 def model_predict(file_path1,file_path2, path):
     smith_atlas = datasets.fetch_atlas_smith_2009()
     smith_atlas_rs_networks = smith_atlas.rsn70
     smith_atlas_rs_networks
-     
-    
-    buscar1=re.findall('_rest_tshift_RPI_voreg_mni.nii.gz',file_path1)
-    buscar2=re.findall('_regressors.csv',file_path2)
-    buscar3=re.findall('[0-9]+',file_path1)
-    buscar1 = "".join(buscar1)
-    buscar2 = "".join(buscar2)
-    buscar3 = "".join(buscar3)
-    
 
-    nii=f'C:\\Users\\Gianyosha/nilearn_data\\adhd\\data/{buscar3}/{buscar3}{buscar1}'
-    cf=f'C:\\Users\\Gianyosha/nilearn_data\\adhd\\data/{buscar3}/{buscar3}{buscar2}'
-
-    print(nii,cf)
+    nii=file_path1
+    cf=ffile_path2
     
     Xp=preprocessing(nii,cf,smith_atlas)
     model_load=keras.models.load_model(path+"model.h5")
@@ -142,10 +129,8 @@ def model_predict(file_path1,file_path2, path):
     for i in pred:
         for j in i:
             preds.append(j)
-
     
     return preds
-
 
 @app.route('/', methods=['GET'])
 def index():
